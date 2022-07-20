@@ -21,3 +21,6 @@ jobs: # a collection of steps
       - run: # run snyk test - run snyk test
           name: snyk test
           command: snyk test --severity-threshold=critical --fail-on=patchable
+      - run: # run snyk monitor - run snyk monitor
+          name: snyk monitor
+          command: snyk monitor
