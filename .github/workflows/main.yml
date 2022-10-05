@@ -32,14 +32,6 @@ jobs:
         ./snyk auth 4d601f86-ebd7-4615-9dc3-fea4cfcd957a
     - name: Snyk Open Source # For testing and failing please add snyk test before snyk cmonitor
       run: |
-        ./snyk test || true 
-    - name: Snyk Code # Remove || true to fail if there are vulnerabilities
-      run: |
-        ./snyk code test || true 
-    - name: Snyk Container # Rename your image, for testing and failing please add snyk container test before snyk container monitor
-      run: |
-        docker build . -t yourimage:tag
-        ./snyk container test yourimage:tag --file=Dockerfile || true
-    - name: Snyk IaC # Remove || true to fail if there are vulnerabilities
-      run: |
-        /.snyk iac test || true
+        ./snyk monitor
+        ./snyk test --severity-threshold=high
+  
