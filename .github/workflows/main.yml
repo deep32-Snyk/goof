@@ -34,4 +34,8 @@ jobs:
       run: |
         ./snyk monitor
         ./snyk test --severity-threshold=high
+    - uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: snyk.sarif
+      
   
